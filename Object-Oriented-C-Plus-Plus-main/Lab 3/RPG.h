@@ -14,12 +14,14 @@ public:
     RPG();
     RPG(string name, int health, int strength, int defense, string type);
 
+
     string getName() const;
     int getHealth() const;
     int getStrength() const;
     int getDefense() const;
     bool isAlive() const;
 
+   
     void updateHealth(int new_health);
     void setSkills();
     void printAction(string skill, RPG& opponent);

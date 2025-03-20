@@ -1,13 +1,14 @@
 #include "RPG.h"
 
 int main() {
+    
     RPG npc;
     RPG player("Wiz", 100, 15, 5, "mage");
 
     cout << player.getName() << " health: " << player.getHealth() << " NPC health: " << npc.getHealth() << endl;
 
     while (player.isAlive() && npc.isAlive()) {
-   
+       
         cout << player.getName() << "'s turn\n";
         player.useSkill(npc);
 
@@ -16,7 +17,7 @@ int main() {
             break;
         }
 
-  
+      
         cout << "NPC's turn\n";
         npc.useSkill(player);
 
