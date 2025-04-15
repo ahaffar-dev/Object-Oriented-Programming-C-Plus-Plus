@@ -5,21 +5,22 @@
 #include <vector>
 using namespace std;
 
-class Pokemon {
-public:
-    // ==================== Constructor ====================
-    Pokemon(string name, int hp, int atk, int def, vector<string> type);
-
-    // ==================== Virtual Functions ====================
-    virtual void speak();
-    virtual void printSkill();
-
-protected:
-    string name;
-    int hitPoints;
-    int attack;
-    int defense;
-    vector<string> types;
+class Pokemon{
+    public:
+        // ----------------- Constructors ------------------
+        Pokemon();
+        Pokemon(string name, int hp, int att, int def, vector<string> type);
+        // ----------------- Mutator Functions ------------------
+        virtual void speak();
+        virtual void printStats();
+        // ----------------- Accessor Functions ------------------
+    
+    protected:
+        string name;
+        int hp;
+        int attack;
+        int defense;
+        vector<string> type;
 };
 
 #endif

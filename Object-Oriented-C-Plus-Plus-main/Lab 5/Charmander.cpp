@@ -1,28 +1,53 @@
 #include <iostream>
-#include <vector>
+#include <stdio.h>
 #include "Charmander.h"
-using namespace std;
 
+/**
+ * @brief Construct a new Charmander:: Charmander object
+ * 
+ */
 Charmander::Charmander() : Pokemon() {
-    skills.push_back("Ember");
-    skills.push_back("Flamethrower");
-    cout << "== Default Constructor (Charmander) ==\n";
+    type.push_back("Fire");
+    skills.push_back("Growl");
+    skills.push_back("Scratch");
+
+    cout << "Default Constructor (Charmander)\n";
 }
 
-Charmander::Charmander(string name, int hp, int atk, int def, vector<string> types)
-    : Pokemon(name, hp, atk, def, types) {
-    skills.push_back("Ember");
-    skills.push_back("Flamethrower");
-    cout << "== Param Constructor (Charmander) ==\n";
+/**
+ * @brief Construct a new Charmander:: Charmander object
+ * 
+ * @param name 
+ * @param hp 
+ * @param att 
+ * @param def 
+ * @param t 
+ * @param s 
+ */
+Charmander::Charmander(string name, int hp, int att, int def, vector<string> t, vector<string> s) : 
+Pokemon(name, hp, att, def, t) {
+    type = t;
+    skills = s;
+    cout << "Overloaded Constructor (Charmander)\n";
 }
 
-void Charmander::speak() {
-    cout << "Charmander! Charmander!\n";
+/**
+ * @brief says what a charmander says
+ * 
+ */
+void Charmander::speak(){
+    cout << "Charmander~char\n";
 }
 
-void Charmander::printSkill() {
-    cout << "===== Print Skill =====\n";
-    for (int i = 0; i < skills.size(); i++) {
-        cout << skills[i] << endl;
+/**
+ * @brief calls printStats from the parent class (Pokemon) and appends the skills used for Charmander
+ * 
+ */
+void Charmander::printStats(){
+    Pokemon::printStats();
+    cout << "Skills: ";
+    for(int i = 0; i < skills.size(); i++){
+        cout << skills[i] << "\t";
     }
+    cout << endl;
 }

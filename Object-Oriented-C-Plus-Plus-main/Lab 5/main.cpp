@@ -1,20 +1,30 @@
 #include <iostream>
-#include <vector>
 #include "Charmander.h"
 using namespace std;
+int main()
+{
+    // Charmander first = Charmander();
+    vector<string> pokemonType;
+    pokemonType.push_back("Fire");
 
-int main() {
-    vector<string> pokeTypes;
-    pokeTypes.push_back("Fire");
+    vector<string> skills;
+    skills.push_back("Growl");
+    skills.push_back("Scratch");
 
-    Charmander char1 = Charmander("Char1", 100, 4, 6, pokeTypes);
-    cout << "== Line 1: Direct Speak ==\n";
-    char1.speak();
-
-    Pokemon* p = &char1;
-    cout << "== Speak via pointer to Pokemon Pointer ==\n";
-    p->speak();
-    p->printSkill();
-
-    return 0;
+    cout << "--------Constructor Created---------\n";
+    Charmander charlie = Charmander("Charlie", 100, 4, 4, pokemonType, skills);
+    // Charmander
+    cout << "\n--------Direct Speak---------\n";
+    charlie.speak();
+    // Pokemon pointer to Charmander
+    Pokemon * p1 = &charlie;
+    cout << "\n-------- Speak called from Pokemon Pointer---------\n";
+    (*p1).speak();
+    // Charmander pointer to Charmander
+    Charmander * c1 = &charlie;
+    cout << "\n-------- Speak called from Charmander Pointer---------\n";
+    (*c1).speak();
+    // Charmander
+    cout << "\n-------- Print Stats ---------\n";
+    charlie.printStats();
 }
